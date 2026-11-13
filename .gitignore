@@ -1,0 +1,18 @@
+# projekt gyökeréből
+cat > .gitignore << 'EOF'
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Database
+*.sql~
+
+# IDE
+.vscode/
+.idea/
+
+# Config (API kulcsok miatt)
+backend/config.json
+EOF
