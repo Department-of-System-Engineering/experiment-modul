@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
 import ExperimentTable from "./Admin/ExperimentTable";
+import H1 from "./UI/Tags/H1";
 
 const Admin = () => {
   return (
     <div className="min-h-[720px] bg-[#F4F5F7] font-['IBM_Plex_Sans',_system-ui,_sans-serif] text-[#1B1F24]">
       <main className="max-w-[1120px] mx-[auto] my-[0] px-[24px] py-[40px] flex flex-col gap-[20px]">
         <div className="flex items-center justify-between gap-[16px] flex-wrap">
-          <h1 className="m-0 text-[28px] font-semibold">Kísérletek</h1>
+          {H1("Kísérletek")}
           <Link
-            to="/szerkesztes"
+            to="/admin/szerkesztes"
             className="inline-flex items-center justify-center min-h-[44px] px-[20px] py-[0] rounded-[8px] bg-[#2457C5] text-[#FFFFFF] text-[15px] font-medium no-underline gap-[8px]"
           >
             <svg
