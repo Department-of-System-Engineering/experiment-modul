@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { getExperiments } from "../../context/service";
 import ExperimentTableElement from "./ExperimentTableElement";
+import type { Experiment } from "../../context/types";
 
 const ExperimentTable = () => {
-  const [data, setData] = useState<any[]>([]);
+  const [data, setData] = useState<Experiment[]>([]);
 
   useEffect(() => {
     getExperiments()
@@ -34,7 +35,13 @@ const ExperimentTable = () => {
       </thead>
       <tbody>
         {data?.map((experiment) => (
-          <ExperimentTableElement key={experiment.id} experiment={experiment} />
+          <ExperimentTableElement
+            key={experiment.id}
+            experiment={experiment}
+            onDelete={(id) =>
+              setData((prev) => prev.filter((e) => e.id !== id))
+            }
+          />
         ))}
       </tbody>
     </table>

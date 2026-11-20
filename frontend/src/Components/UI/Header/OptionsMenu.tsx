@@ -12,15 +12,23 @@ const OptionsMenu = () => {
 
   return (
     <nav className="flex items-center gap-[24px] text-[15px] flex-wrap">
-      <Link to="/admin" className={linkClass("/admin")}>
-        Kísérletek
-      </Link>
-      <Link to="/admin/lefutott" className={linkClass("/admin/lefutott")}>
-        Lefutott kísérletek
-      </Link>
-      <Link to="/" className={linkClass("/")}>
-        Főoldal
-      </Link>
+      {location.pathname === "/" ? (
+        <Link to="/admin" className={linkClass("/admin")}>
+          Admin
+        </Link>
+      ) : (
+        <>
+          <Link to="/admin" className={linkClass("/admin")}>
+            Kísérletek
+          </Link>
+          <Link to="/admin/lefutott" className={linkClass("/admin/lefutott")}>
+            Lefutott kísérletek
+          </Link>
+          <Link to="/" className={linkClass("/")}>
+            Főoldal
+          </Link>
+        </>
+      )}
 
       <fieldset
         role="group"
