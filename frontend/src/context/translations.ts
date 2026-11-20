@@ -23,6 +23,16 @@ export const translations = {
     status: "Állapot",
     inProgress: "Folyamatban",
     completed: "Befejezve",
+    questionnaires: "kérdőív",
+    launch: "Indítás",
+    required: "Kötelező.",
+    experimentNamePlaceholder: "Adja meg a kísérlet nevét!",
+    ethicsPlaceholder: "Adja meg az etikai engedélyszámot!",
+    informationPlaceholder: "Információ . . .",
+    mainPage: "Főoldal",
+    startExperiment: "Kísérlet indítása",
+    startExperimentDescription:
+      "Válassza ki, melyik kísérletet indítja. Csak a nem törölt kísérletek jelennek meg.",
   },
   en: {
     // Admin
@@ -48,6 +58,16 @@ export const translations = {
     status: "Status",
     inProgress: "In progress",
     completed: "Completed",
+    questionnaires: "questionnaires",
+    launch: "Launch",
+    required: "Required.",
+    experimentNamePlaceholder: "Enter the experiment name!",
+    ethicsPlaceholder: "Enter the ethics approval number!",
+    informationPlaceholder: "Information . . .",
+    mainPage: "Main page",
+    startExperiment: "Start experiment",
+    startExperimentDescription:
+      "Select which experiment to start. Only non-deleted experiments are shown.",
   },
 };
 

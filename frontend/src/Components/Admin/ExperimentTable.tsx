@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import { getExperiments } from "../../context/service";
 import ExperimentTableElement from "./ExperimentTableElement";
 import type { Experiment } from "../../context/types";
+import { useLanguage } from "../../context/LanguageContext";
 
 const ExperimentTable = () => {
   const [data, setData] = useState<Experiment[]>([]);
+  const { t } = useLanguage();
 
   useEffect(() => {
     getExperiments()
@@ -17,19 +19,19 @@ const ExperimentTable = () => {
       <thead>
         <tr className="text-left text-[#5B6470] text-[13px]">
           <th className="p-[14px_20px] font-medium border-b-[1px_solid_#D9DDE3]">
-            Név
+            {t("experimentName")}
           </th>
           <th className="p-[14px_20px] font-medium border-b-[1px_solid_#D9DDE3]">
-            Etikai engedély
+            {t("ethicsNumber")}
           </th>
           <th className="p-[14px_20px] font-medium border-b-[1px_solid_#D9DDE3]">
-            Kérdőívek
+            {t("questionnaires")}
           </th>
           <th className="p-[14px_20px] font-medium border-b-[1px_solid_#D9DDE3]">
-            Létrehozva
+            {t("created")}
           </th>
           <th className="p-[14px_20px] font-medium border-b-[1px_solid_#D9DDE3] text-right">
-            Műveletek
+            {t("actions")}
           </th>
         </tr>
       </thead>

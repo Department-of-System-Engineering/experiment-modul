@@ -1,10 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
 import { useLanguage } from "../../../context/LanguageContext";
 
 const OptionsMenu = () => {
   const location = useLocation();
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
 
   const linkClass = (path: string) =>
     location.pathname === path
@@ -20,13 +19,13 @@ const OptionsMenu = () => {
       ) : (
         <>
           <Link to="/admin" className={linkClass("/admin")}>
-            Kísérletek
+            {t("experiments")}
           </Link>
-          <Link to="/admin/runs" className={linkClass("/admin/lefutott")}>
-            Lefutott kísérletek
+          <Link to="/admin/runs" className={linkClass("/admin/runs")}>
+            {t("runs")}
           </Link>
           <Link to="/" className={linkClass("/")}>
-            Főoldal
+            {t("mainPage")}
           </Link>
         </>
       )}
@@ -53,7 +52,7 @@ const OptionsMenu = () => {
           type="button"
           aria-pressed={language === "en"}
           className={
-            "min-w-[48px] min-h-[44px] border-0 font-size-[14px]  " +
+            "min-w-[48px] min-h-[44px] border-0 font-size-[14px] " +
             (language === "en"
               ? "font-semibold bg-[#2457C5] text-[#FFFFFF]"
               : "font-medium bg-[#FFFFFF] text-[#1B1F24]")

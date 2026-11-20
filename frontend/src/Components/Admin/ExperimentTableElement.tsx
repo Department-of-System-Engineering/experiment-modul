@@ -1,5 +1,6 @@
 import type { Experiment } from "../../context/types";
 import { deleteExperiment } from "../../context/service";
+import { useLanguage } from "../../context/LanguageContext";
 
 interface Props {
   experiment: Experiment;
@@ -7,6 +8,8 @@ interface Props {
 }
 
 const ExperimentTableElement = ({ experiment, onDelete }: Props) => {
+  const { t } = useLanguage();
+
   const softDelete = () => {
     deleteExperiment(experiment.id)
       .then(() => onDelete(experiment.id))
@@ -30,7 +33,7 @@ const ExperimentTableElement = ({ experiment, onDelete }: Props) => {
         ))}
       </td>
       <td className="p-[16px_20px] text-[#3D4550] border-t-[1px_solid_#E3E6EA]">
-        2026-10-29
+        {new Date(experiment.created_at).toLocaleDateString("hu-HU")}
       </td>
       <td className="p-[16px_20px] text-[#3D4550] border-t-[1px_solid_#E3E6EA] text-right">
         <button
@@ -38,7 +41,7 @@ const ExperimentTableElement = ({ experiment, onDelete }: Props) => {
           className="inline-flex items-center justify-center min-h-[44px] px-[20px] py-[0] rounded-[8px] border-[1px] border-[solid] border-[#C3C9D1] bg-[#FFFFFF] text-[#1B1F24] text-[15px] font-medium no-underline [font:inherit] text-[14px] text-[#B42318] border-[#E8B4AE]"
           onClick={softDelete}
         >
-          Törlés
+          {t("delete")}
         </button>
       </td>
     </tr>

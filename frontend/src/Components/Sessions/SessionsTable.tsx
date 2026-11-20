@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import type { Session } from "../../context/types";
 import { getSessions } from "../../context/service";
 import SessionTableElement from "./SessionTableElement";
+import { useLanguage } from "../../context/LanguageContext";
 
 const SessionTable = () => {
   const [sessions, setSessions] = useState<Session[]>([]);
+  const { t } = useLanguage();
 
   useEffect(() => {
     getSessions()
@@ -17,22 +19,22 @@ const SessionTable = () => {
       <thead>
         <tr className="text-left text-[#5b6470] text-[13px]">
           <th className="px-[20px] py-[14px] font-medium border-b-[1px_solid_#d9dde3]">
-            Kísérlet
+            {t("experiment")}
           </th>
           <th className="px-[20px] py-[14px] font-medium border-b-[1px_solid_#d9dde3]">
-            Résztvevő
+            {t("participant")}
           </th>
           <th className="px-[20px] py-[14px] font-medium border-b-[1px_solid_#d9dde3]">
-            Nyelv
+            {t("language")}
           </th>
           <th className="px-[20px] py-[14px] font-medium border-b-[1px_solid_#d9dde3]">
-            Kezdés
+            {t("start")}
           </th>
           <th className="px-[20px] py-[14px] font-medium border-b-[1px_solid_#d9dde3]">
-            Befejezés
+            {t("end")}
           </th>
           <th className="px-[20px] py-[14px] font-medium border-b-[1px_solid_#d9dde3]">
-            Állapot
+            {t("status")}
           </th>
         </tr>
       </thead>
