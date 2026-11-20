@@ -1,27 +1,28 @@
 import psycopg2
 import psycopg2.extras
 from contextlib import contextmanager
-from typing import Optional
-
-DATABASE_URL = "postgresql://postgres:postgres@localhost:5432/experiment_modul?options=-c%20client_encoding%3DUTF8"
 
 async def init_db():
-    return None
+    pass
 
 async def close_db():
-    return None
+    pass
 
 @contextmanager
 def get_db():
     conn = psycopg2.connect(
-        DATABASE_URL,
+        database="experiment_modul",
+        user="postgres",
+        password="postgres",
+        host="db",
+        port="5432",
         cursor_factory=psycopg2.extras.RealDictCursor
     )
     try:
         yield conn
         conn.commit()
-    except Exception:
+    except Exception as e:
         conn.rollback()
-        raise
+        raise e
     finally:
         conn.close()

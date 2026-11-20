@@ -5,7 +5,6 @@ from typing import Optional
 from enum import Enum
 
 # Enums
-
 class SessionLanguage(str, Enum):
     en = "en"
     hu = "hu"
@@ -15,7 +14,6 @@ class SessionStatus(str, Enum):
     completed = "completed"
 
 # Request columns
-
 class SessionCreate(BaseModel):
     participant_pseudonym: str
     language: SessionLanguage
@@ -28,7 +26,6 @@ class SessionResponseCreate(BaseModel):
     response_id: str
 
 # Response columns
-
 class SessionResponse(BaseModel):
     session_id: UUID
     questionnaire_id: str

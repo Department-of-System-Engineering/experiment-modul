@@ -1,10 +1,5 @@
 -- Experiment modul – schema.sql
 
-DROP DATABASE IF EXISTS experiment_modul;
-CREATE DATABASE experiment_modul CHARACTER SET UTF8 COLLATE utf8_hungarian_ci;
-
-\c experiment_modul
-
 -- 1. Sablon tábla
 CREATE TABLE experiments (
     id                     UUID PRIMARY KEY DEFAULT gen_random_uuid(),

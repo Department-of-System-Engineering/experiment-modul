@@ -5,7 +5,6 @@ from typing import Optional
 from enum import Enum
 
 # Enums
-
 class ExperimentOccasion(str, Enum):
     pre = "pre"
     post = "post"
@@ -13,17 +12,18 @@ class ExperimentOccasion(str, Enum):
 
 # Request columns
 
-class ExperimentCreate(BaseModel):
-    name: str
-    ethics_approval_number: str
-    information_text: str
-    questionnaires: list[ExperimentQuestionnaireCreate] = []
-
+# Request models
 class ExperimentQuestionnaireCreate(BaseModel):
     questionnaire_id: str
     version: str
     occasion: ExperimentOccasion
     position: int
+
+class ExperimentCreate(BaseModel):
+    name: str
+    ethics_approval_number: str
+    information_text: Optional[str] = None
+    questionnaires: list[ExperimentQuestionnaireCreate] = []
 
 # Response columns
 
