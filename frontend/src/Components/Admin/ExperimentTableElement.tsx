@@ -1,18 +1,25 @@
-import "../../context/types";
+import type { Experiment } from "../../context/types";
 
-const ExperimentTableElement = () => {
+interface Props {
+  experiment: Experiment;
+}
+
+const ExperimentTableElement = ({ experiment }: Props) => {
   return (
     <tr>
       <td className="p-[16px_20px] text-[#3D4550] border-t-[1px_solid_#E3E6EA] text-[#1B1F24] font-medium">
-        WI pilot
+        {experiment.name}
       </td>
       <td className="p-[16px_20px] text-[#3D4550] border-t-[1px_solid_#E3E6EA]">
-        [engedélyszám]
+        {experiment.ethics_approval_number}
       </td>
       <td className="p-[16px_20px] text-[#3D4550] border-t-[1px_solid_#E3E6EA]">
-        1. Pre-task questionnaire
-        <br />
-        2. Post-task questionnaire
+        {experiment.questionnaires.map((questionnaire, index) => (
+          <span key={questionnaire.questionnaire_id}>
+            {index + 1}. {questionnaire.occasion}-task questionnaire
+            <br />
+          </span>
+        ))}
       </td>
       <td className="p-[16px_20px] text-[#3D4550] border-t-[1px_solid_#E3E6EA]">
         2026-10-29

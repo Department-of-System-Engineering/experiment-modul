@@ -1,8 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getExperiments } from "../../context/service";
 import ExperimentTableElement from "./ExperimentTableElement";
 
 const ExperimentTable = () => {
   const [data, setData] = useState<any[]>([]);
+
+  useEffect(() => {
+    getExperiments()
+      .then((response) => setData(response))
+      .catch((err) => console.log(`Error: ${err}`));
+  }, []);
 
   return (
     <table className="w-[100%] border-collapse text-[15px] min-w-[820px]">
@@ -27,7 +34,7 @@ const ExperimentTable = () => {
       </thead>
       <tbody>
         {data?.map((experiment) => (
-          <ExperimentTableElement />
+          <ExperimentTableElement key={experiment.id} experiment={experiment} />
         ))}
       </tbody>
     </table>

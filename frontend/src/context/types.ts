@@ -1,32 +1,36 @@
-type Experiment = {
-  id: number;
-  name: string;
-  ethicsApprovalNumber: number;
-  information_text: string;
-  created_at: Date;
-  deleted_at?: Date | null;
-};
-
-type Experiment_questionnaire = {
-  id: number;
-  questionnaireId: string;
+export type ExperimentQuestionnaire = {
+  experiment_id: string;
+  questionnaire_id: string;
   version: string;
+  occasion: "pre" | "post" | "between_cycles";
   position: number;
-  occasion: null; // This field does not have a type defined in the provided context, so it is set to null for now.
 };
 
-type Session = {
-  id: number;
-  experimentId: number;
-  participantPseudonym: string;
+export type Experiment = {
+  id: string;
+  name: string;
+  ethics_approval_number: string;
+  information_text: string | null;
+  created_at: string;
+  deleted_at: string | null;
+  questionnaires: ExperimentQuestionnaire[];
+};
+
+export type SessionResponse = {
+  session_id: string;
+  questionnaire_id: string;
+  response_id: string;
+};
+
+export type Session = {
+  id: string;
+  experiment_id: string;
+  participant_pseudonym: string;
   language: "hu" | "en";
-  paperConsentConfirmedAt: Date;
-  demographicsId: string;
-  status: "in progress" | "completed";
-};
-
-type SessionResponse = {
-  id: number;
-  responseId: string;
-  questionnaireId: string;
+  paper_consent_confirmed_at: string | null;
+  demographics_id: string | null;
+  status: "in_progress" | "completed";
+  started_at: string;
+  ended_at: string | null;
+  responses: SessionResponse[];
 };

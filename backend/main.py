@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from database import init_db, close_db
 from routers import experiments, sessions
@@ -10,6 +11,14 @@ async def lifespan(app: FastAPI):
     await close_db()
 
 app = FastAPI(title="Experiment modul API", lifespan=lifespan)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 app.include_router(experiments.router)
 app.include_router(sessions.router)
