@@ -9,7 +9,7 @@ const Admin = () => {
         <div className="flex items-center justify-between gap-[16px] flex-wrap">
           {H1("Kísérletek")}
           <Link
-            to="/admin/szerkesztes"
+            to="/admin/new"
             className="inline-flex items-center justify-center min-h-[44px] px-[20px] py-[0] rounded-[8px] bg-[#2457C5] text-[#FFFFFF] text-[15px] font-medium no-underline gap-[8px]"
           >
             <svg

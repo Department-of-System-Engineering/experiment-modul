@@ -11,7 +11,7 @@ router = APIRouter(prefix="/sessions", tags=["sessions"])
 async def get_sessions():
     with get_db() as conn:
         cursor = conn.cursor()
-        cursor.execute("SELECT s.*, json_agg(json_build_object('session_id', r.session_id, 'questionnaire_id', r.questionnaire_id, 'response_id', r.response_id)) FILTER (WHERE r.session_id IS NOT NULL) as responses FROM sessions s LEFT JOIN session_responses r ON s.id = r.session_id GROUP BY s.id ORDER BY s.started_at DESC")
+        cursor.execute("SELECT s.*, e.name as experiment_name, json_agg(json_build_object('session_id', r.session_id, 'questionnaire_id', r.questionnaire_id, 'response_id', r.response_id)) FILTER (WHERE r.session_id IS NOT NULL) as responses FROM sessions s JOIN experiments e ON s.experiment_id = e.id LEFT JOIN session_responses r ON s.id = r.session_id GROUP BY s.id, e.name ORDER BY s.started_at DESC")        
         rows = cursor.fetchall()
         result = []
         for row in rows:

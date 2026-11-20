@@ -34,6 +34,7 @@ class SessionResponse(BaseModel):
 class Session(BaseModel):
     id: UUID = Field(default_factory=uuid4)
     experiment_id: UUID
+    experiment_name: Optional[str] = None
     participant_pseudonym: str
     language: SessionLanguage
     paper_consent_confirmed_at: Optional[datetime] = None

@@ -1,9 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
+import { useLanguage } from "../../../context/LanguageContext";
 
 const OptionsMenu = () => {
   const location = useLocation();
-  const [currentLanguage, setCurrentLanguage] = useState("HU");
+  const { language, setLanguage } = useLanguage();
 
   const linkClass = (path: string) =>
     location.pathname === path
@@ -21,7 +22,7 @@ const OptionsMenu = () => {
           <Link to="/admin" className={linkClass("/admin")}>
             Kísérletek
           </Link>
-          <Link to="/admin/lefutott" className={linkClass("/admin/lefutott")}>
+          <Link to="/admin/runs" className={linkClass("/admin/lefutott")}>
             Lefutott kísérletek
           </Link>
           <Link to="/" className={linkClass("/")}>
@@ -37,27 +38,27 @@ const OptionsMenu = () => {
       >
         <button
           type="button"
-          aria-pressed={currentLanguage === "HU"}
+          aria-pressed={language === "hu"}
           className={
             "min-w-[48px] min-h-[44px] border-0 font-size-[14px] " +
-            (currentLanguage === "HU"
+            (language === "hu"
               ? "font-semibold bg-[#2457C5] text-[#FFFFFF]"
               : "font-medium bg-[#FFFFFF] text-[#1B1F24]")
           }
-          onClick={() => setCurrentLanguage("HU")}
+          onClick={() => setLanguage("hu")}
         >
           HU
         </button>
         <button
           type="button"
-          aria-pressed={currentLanguage === "EN"}
+          aria-pressed={language === "en"}
           className={
             "min-w-[48px] min-h-[44px] border-0 font-size-[14px]  " +
-            (currentLanguage === "EN"
+            (language === "en"
               ? "font-semibold bg-[#2457C5] text-[#FFFFFF]"
               : "font-medium bg-[#FFFFFF] text-[#1B1F24]")
           }
-          onClick={() => setCurrentLanguage("EN")}
+          onClick={() => setLanguage("en")}
         >
           EN
         </button>

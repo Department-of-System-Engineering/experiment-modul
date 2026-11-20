@@ -25,6 +25,7 @@ export type SessionResponse = {
 export type Session = {
   id: string;
   experiment_id: string;
+  experiment_name: string;
   participant_pseudonym: string;
   language: "hu" | "en";
   paper_consent_confirmed_at: string | null;
