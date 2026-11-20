@@ -1,4 +1,5 @@
 import type { Session } from "../../context/types";
+import { useLanguage } from "../../context/LanguageContext";
 
 interface Props {
   session: Session;
@@ -15,6 +16,8 @@ const formatDate = (dateStr: string) => {
 };
 
 const SessionTableElement = ({ session }: Props) => {
+  const { t } = useLanguage();
+
   return (
     <tr>
       <td className="px-[20px] py-[16px] text-[#3D4550] border-t-[1px_solid_#E3E6EA] text-[#1B1F24] font-medium">
@@ -40,7 +43,7 @@ const SessionTableElement = ({ session }: Props) => {
               : "bg-[#e6edfb] text-[#1f4ba8]"
           }`}
         >
-          {session.status === "completed" ? "Befejezve" : "Folyamatban"}
+          {session.status === "completed" ? t("completed") : t("inProgress")}
         </span>
       </td>
     </tr>
