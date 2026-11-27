@@ -1,7 +1,5 @@
-fastapi
-uvicorn
-asyncpg
-pydantic
-httpx
-sqlmodel
-psycopg2-binary
+fastapi          # Web framework for building the REST API
+uvicorn          # ASGI server for running the FastAPI app
+psycopg2-binary  # PostgreSQL adapter for database connections
+pydantic         # Data validation and serialization for request/response models
+httpx            # HTTP client for calling the Questionnaire and Participant modules
