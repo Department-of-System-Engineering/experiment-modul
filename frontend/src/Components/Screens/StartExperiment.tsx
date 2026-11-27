@@ -1,8 +1,8 @@
 // import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { useLanguage } from "../../../context/LanguageContext";
-import H1 from "../../UI/Tags/H1";
-import StartExperimentForm from "../StartExperiment/StartExperimentForm";
+import { useLanguage } from "../../context/LanguageContext";
+import H1 from "../UI/Tags/H1";
+import StartExperimentForm from "../sections/StartExperiment/StartExperimentForm";
 
 const StartExperiment = () => {
   const { t } = useLanguage();
