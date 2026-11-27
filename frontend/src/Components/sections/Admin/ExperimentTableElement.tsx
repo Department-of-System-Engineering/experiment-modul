@@ -1,6 +1,6 @@
-import type { Experiment } from "../../context/types";
-import { deleteExperiment } from "../../context/service";
-import { useLanguage } from "../../context/LanguageContext";
+import type { Experiment } from "../../../context/types";
+import { deleteExperiment } from "../../../context/service";
+import { useLanguage } from "../../../context/LanguageContext";
 
 interface Props {
   experiment: Experiment;

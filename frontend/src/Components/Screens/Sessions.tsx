@@ -1,6 +1,6 @@
-import SessionTable from "./Sessions/SessionsTable";
-import H1 from "./UI/Tags/H1";
-import { useLanguage } from "../context/LanguageContext";
+import SessionTable from "../sections/Sessions/SessionsTable";
+import H1 from "../UI/Tags/H1";
+import { useLanguage } from "../../context/LanguageContext";
 
 const Sessions = () => {
   const { t } = useLanguage();

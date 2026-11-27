@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import type { Session } from "../../context/types";
-import { getSessions } from "../../context/service";
+import type { Session } from "../../../context/types";
+import { getSessions } from "../../../context/service";
 import SessionTableElement from "./SessionTableElement";
-import { useLanguage } from "../../context/LanguageContext";
+import { useLanguage } from "../../../context/LanguageContext";
 
 const SessionTable = () => {
   const [sessions, setSessions] = useState<Session[]>([]);

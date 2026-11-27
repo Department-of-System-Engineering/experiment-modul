@@ -1,6 +1,6 @@
-import Label from "../UI/Tags/Label";
-import TextInput from "../UI/Inputs/TextInput";
-import { useLanguage } from "../../context/LanguageContext";
+import Label from "../../UI/Tags/Label";
+import TextInput from "../../UI/Inputs/TextInput";
+import { useLanguage } from "../../../context/LanguageContext";
 
 const ExperimentForm = () => {
   const { t } = useLanguage();

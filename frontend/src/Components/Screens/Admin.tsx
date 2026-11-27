@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import ExperimentTable from "./Admin/ExperimentTable";
-import H1 from "./UI/Tags/H1";
-import { useLanguage } from "../context/LanguageContext";
+import ExperimentTable from "../sections/Admin/ExperimentTable";
+import H1 from "../UI/Tags/H1";
+import { useLanguage } from "../../context/LanguageContext";
 
 const Admin = () => {
   const { t } = useLanguage();

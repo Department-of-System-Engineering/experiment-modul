@@ -1,11 +1,12 @@
 // import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Admin from "./Components/Admin";
-import Experiment from "./Components/Experiment";
+import Admin from "./Components/sections/Screens/Admin";
+import Experiment from "./Components/sections/Screens/Experiment";
 import Header from "./Components/UI/Header";
 import "./index.css";
-import MainPage from "./Components/MainPage";
-import Sessions from "./Components/Sessions";
+import MainPage from "./Components/sections/Screens/MainPage";
+import Sessions from "./Components/sections/Screens/Sessions";
+import StartExperiment from "./Components/sections/Screens/StartExperiment";
 import { LanguageProvider } from "./context/LanguageContext";
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
           <Route path="/admin/runs" element={<Sessions />} />
           <Route path="/" element={<MainPage />} />
           <Route path="/admin/new" element={<Experiment />} />
-          <Route path="/inditas" element={<Admin />} />
+          <Route path="/start/:param" element={<StartExperiment />} />
         </Routes>
       </BrowserRouter>
     </LanguageProvider>

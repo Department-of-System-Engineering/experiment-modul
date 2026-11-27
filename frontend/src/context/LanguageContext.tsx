@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useMemo, useState } from "react";
 import { translations } from "./translations";
 import type { TranslationKey } from "./translations";
 
@@ -29,10 +29,17 @@ export const LanguageProvider = ({
 }) => {
   const [language, setLanguage] = useState<Language>(getBrowserLanguage());
 
-  const t = (key: TranslationKey): string => translations[language][key];
+  const contextValue = useMemo(
+    () => ({
+      language,
+      setLanguage,
+      t: (key: TranslationKey): string => translations[language][key],
+    }),
+    [language],
+  );
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={contextValue}>
       {children}
     </LanguageContext.Provider>
   );

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import type { Experiment } from "../../context/types";
-import { useLanguage } from "../../context/LanguageContext";
+import type { Experiment } from "../../../context/types";
+import { useLanguage } from "../../../context/LanguageContext";
 
 interface Props {
   experiment: Experiment;
@@ -19,7 +19,7 @@ const ExperimentCard = ({ experiment }: Props) => {
         </div>
       </div>
       <Link
-        to="/inditas"
+        to={`/start/${experiment.id}`}
         className="inline-flex items-center justify-center min-h-[44px] px-[20px] py-[0] rounded-[8px] bg-[#2457C5] text-[#FFFFFF] text-[15px] font-medium no-underline"
       >
         {t("launch")}

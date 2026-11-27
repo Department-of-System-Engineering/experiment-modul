@@ -1,5 +1,5 @@
-import type { Session } from "../../context/types";
-import { useLanguage } from "../../context/LanguageContext";
+import type { Session } from "../../../context/types";
+import { useLanguage } from "../../../context/LanguageContext";
 
 interface Props {
   session: Session;

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { getExperiments } from "../context/service";
-import type { Experiment } from "../context/types";
-import H1 from "./UI/Tags/H1";
-import ExperimentCard from "./MainPage/ExperimentCard";
-import { useLanguage } from "../context/LanguageContext";
+import { getExperiments } from "../../../context/service";
+import type { Experiment } from "../../../context/types";
+import H1 from "../../UI/Tags/H1";
+import ExperimentCard from "../MainPage/ExperimentCard";
+import { useLanguage } from "../../../context/LanguageContext";
 
 const MainPage = () => {
   const [data, setData] = useState<Experiment[]>([]);

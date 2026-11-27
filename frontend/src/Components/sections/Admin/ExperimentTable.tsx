@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { getExperiments } from "../../context/service";
+import { getExperiments } from "../../../context/service";
 import ExperimentTableElement from "./ExperimentTableElement";
-import type { Experiment } from "../../context/types";
-import { useLanguage } from "../../context/LanguageContext";
+import type { Experiment } from "../../../context/types";
+import { useLanguage } from "../../../context/LanguageContext";
 
 const ExperimentTable = () => {
   const [data, setData] = useState<Experiment[]>([]);
